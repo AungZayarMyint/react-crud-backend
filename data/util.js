@@ -1,12 +1,12 @@
 const fs = require("node:fs/promises");
+const posts = require("../store/posts.json");
 
 async function readData() {
-  const data = await fs.readFile("./store/posts.json", "utf8");
-  return JSON.parse(data);
+  return posts;
 }
 
 async function writeData(data) {
-  await fs.writeFile("./store/posts.json", JSON.stringify(data));
+  await fs.writeFile(posts, JSON.stringify(data));
 }
 
 exports.readData = readData;
